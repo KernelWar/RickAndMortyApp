@@ -16,15 +16,15 @@ export const routes: Routes = [
         children: [
             {
                 path: 'home',
-                component: HomeComponent
+                loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
             },
             {
                 path: 'characters',
-                component: CharactersComponent
+                loadComponent: () => import('./pages/characters/characters.component').then(m => m.CharactersComponent)
             },
             {
                 path: 'thank-you',
-                component: ThankYouComponent
+                loadComponent: () => import('./pages/thank-you/thank-you.component').then(m => m.ThankYouComponent)
             }
         ]
       },

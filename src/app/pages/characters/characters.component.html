@@ -1,1 +1,15 @@
-<p>characters works!</p>
+<!-- characters.component.html -->
+<div class="characters">
+    <div class="character-card" *ngFor="let character of characters$ | async">
+      <img [src]="character.image" [alt]="character.name" />
+      <h3>{{ character.name }}</h3>
+      <p>{{ character.species }} - {{ character.gender }}</p>
+    </div>
+  
+    <div #scrollAnchor class="scroll-anchor"></div>
+  
+    <div *ngIf="loading$ | async" class="loading-spinner">
+      Loading...
+    </div>
+  </div>
+  
