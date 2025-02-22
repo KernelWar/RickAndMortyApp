@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-header>
+      <div mat-card-avatar class="bg-cover" [ngStyle]="{'background-image': 'url(' + character.image + ')'}"></div>
+      <mat-card-title>{{ character.name }}</mat-card-title>
+      <mat-card-subtitle>{{ character.gender }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="character.image" alt="image character">
+    <mat-card-footer>
+        <mat-chip-set>
+          <mat-chip>{{ character.species }}</mat-chip>
+        </mat-chip-set>
+      </mat-card-footer>
+  </mat-card>
+  

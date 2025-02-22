@@ -1,15 +1,19 @@
 <!-- characters.component.html -->
 <div class="characters">
-    <div class="character-card" *ngFor="let character of characters$ | async">
-      <img [src]="character.image" [alt]="character.name" />
-      <h3>{{ character.name }}</h3>
-      <p>{{ character.species }} - {{ character.gender }}</p>
-    </div>
-  
-    <div #scrollAnchor class="scroll-anchor"></div>
-  
-    <div *ngIf="loading$ | async" class="loading-spinner">
-      Loading...
-    </div>
+  <div *ngFor="let character of characters$ | async">
+    <app-card-character [character]="character"></app-card-character>
   </div>
+
+  <mat-paginator
+    [length]="100"
+    [pageSize]="20"
+    [pageSizeOptions]="[10, 20, 30]"
+    (page)="onPageChanged($event)">
+  </mat-paginator>
+
+  <div *ngIf="loading$ | async" class="loading-spinner">
+    Loading...
+  </div>
+</div>
+
   

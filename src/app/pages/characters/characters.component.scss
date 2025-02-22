@@ -1,28 +1,13 @@
-/* characters.component.css */
 .characters {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-    padding: 16px;
-  }
-  
-  .character-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    padding: 8px;
-  }
-  
-  .character-card img {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .loading-spinner {
-    text-align: center;
-    font-weight: bold;
-    padding: 16px;
-  }
-  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+
+.loading-spinner {
+  text-align: center;
+  font-weight: bold;
+  padding: 16px;
+}
