@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Character, FullCharacter, ResultPaginatorCharacter } from '../models/character.model';
+import { Character, ResultPaginatorCharacter } from '../models/character.model';
 import { environment } from '../../environments/environment';
 import { Cacheable } from 'ts-cacheable';
 @Injectable({
@@ -20,8 +20,7 @@ export class CharactersService {
   @Cacheable({
     maxAge: 36000000
   })
-  getCharacterById(id: number): Observable<FullCharacter> {
-    console.log("consultado")
-    return this.http.get<FullCharacter>(`${this.apiUrl}/${id}`);
+  getCharacterById(id: number): Observable<Character> {
+    return this.http.get<Character>(`${this.apiUrl}/${id}`);
   }  
 }

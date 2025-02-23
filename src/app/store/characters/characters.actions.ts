@@ -8,7 +8,7 @@ export const loadCharacters = createAction(
 
 export const loadCharactersSuccess = createAction(
   '[Characters] Load Characters Success',
-  props<{ characters: Character[]; currentPage: number; hasMore: boolean; count: number }>()
+  props<{ characters: Character[]; currentPage: number; count: number }>()
 );
 
 export const loadCharactersFailure = createAction(

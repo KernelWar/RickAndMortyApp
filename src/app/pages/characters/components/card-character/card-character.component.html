@@ -1,10 +1,5 @@
 <a [routerLink]="['/character', character.id]" class="link-card">
-  <mat-card>
-    <mat-card-header>
-      <div mat-card-avatar class="bg-cover" [ngStyle]="{'background-image': 'url(' + character.image + ')'}"></div>
-      <mat-card-title>{{ character.name }}</mat-card-title>
-      <mat-card-subtitle>{{ character.gender }}</mat-card-subtitle>
-    </mat-card-header>
+  <mat-card class="h-full">    
     <div class="image-container">
       <div class="image-wrapper" *ngIf="!isLoaded">
         <div class="loader"></div>
@@ -17,6 +12,11 @@
         [class.loaded]="isLoaded"
       />
     </div>
+    <mat-card-header>
+      <div mat-card-avatar class="bg-cover" [ngStyle]="{'background-image': 'url(' + character.image + ')'}"></div>
+      <mat-card-title>{{ character.name }}</mat-card-title>
+      <mat-card-subtitle>{{ character.gender }}</mat-card-subtitle>
+    </mat-card-header>
     <mat-card-footer>
       <mat-chip-set>
         <mat-chip>{{ character.species }}</mat-chip>

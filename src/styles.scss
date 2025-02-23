@@ -1,16 +1,23 @@
-@use '@angular/material' as mat;
-@use './themes/m3-theme.scss';
+@use "@angular/material" as mat;
+@use "./themes/m3-theme.scss";
 
 @include mat.core();
 
-html, body { 
-    height: 100%; 
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
     @include mat.core-theme(m3-theme.$light-theme);
     @include mat.all-component-themes(m3-theme.$light-theme);
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-
-.h-full{
+.h-full {
     height: 100%;
 }

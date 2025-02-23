@@ -8,6 +8,6 @@
   <div *ngIf="currentLoading" class="characters">
     <app-skeleton-card *ngFor="let i of [].constructor(20)"></app-skeleton-card>
   </div>  
-  <mat-paginator showFirstLastButtons [length]="count$ | async" [pageSize]="20" (page)="onPageChanged($event)">
+  <mat-paginator showFirstLastButtons [length]="count$ | async" [pageSize]="20" (page)="onPageChanged($event)" [pageIndex]="currentPage - 1">
   </mat-paginator>
 </div>

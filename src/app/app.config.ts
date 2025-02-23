@@ -7,13 +7,15 @@ import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools  } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
 import { provideHttpClient } from '@angular/common/http';
-import { characterReducer } from './store/characters/character.reducer';
-import { CharacterEffects } from './store/characters/character.effects';
+import { characterReducer } from './store/characters/characters.reducer';
+import { CharacterEffects } from './store/characters/characters.effects';
+import { singleCharacterReducer } from './store/character/character.reducer';
+import { SingleCharacterEffects } from './store/character/character.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideStore({ characters: characterReducer }),
-    provideEffects([CharacterEffects]),
+    provideStore({ characters: characterReducer, singleCharacters: singleCharacterReducer }),
+    provideEffects([CharacterEffects, SingleCharacterEffects]),
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes),
     provideAnimationsAsync(),
