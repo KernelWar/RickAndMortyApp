@@ -15,7 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
     MatButtonModule,
     MatListModule,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'

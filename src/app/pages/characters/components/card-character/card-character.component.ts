@@ -1,8 +1,9 @@
 import { Component, Input, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { Character } from '../../../../store/characters/character.model';
+import { Character } from '../../../../models/character.model';
 import { NgStyle } from '@angular/common';
 import { MatChipsModule } from '@angular/material/chips';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-card-character',
@@ -10,7 +11,8 @@ import { MatChipsModule } from '@angular/material/chips';
   imports: [
     MatCardModule,
     NgStyle,
-    MatChipsModule
+    MatChipsModule,
+    RouterModule
   ],
   templateUrl: './card-character.component.html',
   styleUrl: './card-character.component.scss'

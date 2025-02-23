@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Character } from './character.model';
+import { Character } from '../../models/character.model';
 
 export const loadCharacters = createAction(
   '[Characters] Load Characters',
@@ -8,11 +8,15 @@ export const loadCharacters = createAction(
 
 export const loadCharactersSuccess = createAction(
   '[Characters] Load Characters Success',
-  props<{ characters: Character[]; currentPage: number; hasMore: boolean }>()
+  props<{ characters: Character[]; currentPage: number; hasMore: boolean; count: number }>()
 );
-
 
 export const loadCharactersFailure = createAction(
   '[Characters] Load Characters Failure',
   props<{ error: string }>()
+);
+
+export const updateCurrentPage = createAction(
+  '[Characters] Update Current Page',
+  props<{ page: number }>()
 );

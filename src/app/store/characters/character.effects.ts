@@ -18,6 +18,7 @@ export class CharacterEffects {
               characters: response.results,
               currentPage: action['page'],
               hasMore: !!response.info.next,
+              count: response.info.count
             })
           ),
           catchError((error) => of(CharacterActions.loadCharactersFailure({ error: error.message })))

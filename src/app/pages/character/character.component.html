@@ -1,0 +1,34 @@
+<div class="container">
+    <button mat-mini-fab (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div *ngIf="character$ | async as character; else loading">
+        <img [src]="character.image" alt="">
+        <div>
+            <div class="field d-flex flex-column">
+                <label>Name: </label>
+                <span>{{ character.name }}</span>
+            </div>
+            <div class="field d-flex flex-column">
+                <label>Gender: </label>
+                <span>{{ character.gender }}</span>
+            </div>
+            <div class="field d-flex flex-column">
+                <label>Status: </label>
+                <span>{{ character.status }}</span>
+            </div>
+            <div class="field d-flex flex-column">
+                <label>Species: </label>
+                <span>{{ character.species }}</span>
+            </div>
+            <div class="field d-flex flex-column">
+                <label>Origin: </label>
+                <span>{{ character.origin.name }}</span>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #loading>
+        <p>Loading character...</p>
+    </ng-template>
+</div>

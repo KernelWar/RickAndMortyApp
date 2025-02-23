@@ -8,3 +8,4 @@ export const { selectAll: selectAllCharacters } = characterAdapter.getSelectors(
 export const selectLoading = createSelector(selectCharacterState, (state) => state.loading);
 export const selectHasMore = createSelector(selectCharacterState, (state) => state.hasMore);
 export const selectCurrentPage = createSelector(selectCharacterState, (state) => state.currentPage);
+export const selectCount = createSelector(selectCharacterState, (state) => state.count);

@@ -4,32 +4,36 @@ import { HomeComponent } from './pages/home/home.component';
 import { CharactersComponent } from './pages/characters/characters.component';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 
-export const routes: Routes = [   
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    component: MainComponent,
+    children: [
       {
-        path: '',
-        redirectTo: '',
-        pathMatch: 'full'
+        path: 'home',
+        loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
       },
       {
-        path: '',
-        component: MainComponent,
-        children: [
-            {
-                path: 'home',
-                loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
-            },
-            {
-                path: 'characters',
-                loadComponent: () => import('./pages/characters/characters.component').then(m => m.CharactersComponent)
-            },
-            {
-                path: 'thank-you',
-                loadComponent: () => import('./pages/thank-you/thank-you.component').then(m => m.ThankYouComponent)
-            }
-        ]
+        path: 'characters',
+        loadComponent: () => import('./pages/characters/characters.component').then(m => m.CharactersComponent)
       },
       {
-        path: '**',
-        redirectTo: ''
+        path: 'character/:id',
+        loadComponent: () => import('./pages/character/character.component').then(m => m.CharacterComponent)
+      },
+      {
+        path: 'thank-you',
+        loadComponent: () => import('./pages/thank-you/thank-you.component').then(m => m.ThankYouComponent)
       }
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];

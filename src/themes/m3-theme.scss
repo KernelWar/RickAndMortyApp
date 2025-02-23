@@ -159,5 +159,4 @@ $primary-palette: map.get($_palettes, primary);
 .mat-toolbar {
   background-color: map.get($primary-palette, 80) !important;
   color: mat-contrast(map.get($primary-palette, 60)) !important;
-  @include mat.elevation(4);
 }

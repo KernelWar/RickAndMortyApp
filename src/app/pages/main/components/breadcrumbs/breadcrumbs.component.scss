@@ -1,0 +1,23 @@
+nav {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  
+    .separator {
+      margin: 0 5px;
+    }
+  
+    a {
+      color: #1976d2;
+      text-decoration: none;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  
+    span {
+      
+    }
+  }
+  
