@@ -5,7 +5,18 @@
       <mat-card-title>{{ character.name }}</mat-card-title>
       <mat-card-subtitle>{{ character.gender }}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="character.image" alt="image character">
+    <div class="image-container">
+      <div class="image-wrapper" *ngIf="!isLoaded">
+        <div class="loader"></div>
+      </div>
+      <img 
+        mat-card-image 
+        [src]="character.image" 
+        alt="image character" 
+        (load)="onImageLoad()" 
+        [class.loaded]="isLoaded"
+      />
+    </div>
     <mat-card-footer>
       <mat-chip-set>
         <mat-chip>{{ character.species }}</mat-chip>

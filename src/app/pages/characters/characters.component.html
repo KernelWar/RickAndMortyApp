@@ -1,15 +1,13 @@
 <div class="container">
-  <div class="characters">
+  <div *ngIf="!currentLoading" class="characters">
     <div *ngFor="let character of characters$ | async">
       <app-card-character [character]="character"></app-card-character>
     </div>
-
-    <div *ngIf="loading$ | async" class="loading-spinner">
-      Loading...
-    </div>
+    
   </div>
-
-
+  <div *ngIf="currentLoading" class="characters">
+    <app-skeleton-card *ngFor="let i of [].constructor(20)"></app-skeleton-card>
+  </div>  
   <mat-paginator showFirstLastButtons [length]="count$ | async" [pageSize]="20" (page)="onPageChanged($event)">
   </mat-paginator>
 </div>

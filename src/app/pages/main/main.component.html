@@ -3,11 +3,12 @@
     <mat-drawer-container>
         <mat-drawer #drawer [mode]="mobileQuery.matches ? 'over' : 'side'" opened>
             <app-sidebar></app-sidebar>
-        </mat-drawer>    
+        </mat-drawer>
         <mat-drawer-content>
-            <div class="container-fluid" style="height: 100%;">
-                <router-outlet></router-outlet> 
-            </div>   
-        </mat-drawer-content>   
+            <div class="container-fluid h-full">                
+                <app-loading-page *ngIf="isLoading"></app-loading-page>
+               <router-outlet></router-outlet>
+            </div>
+        </mat-drawer-content>
     </mat-drawer-container>
 </div>

@@ -9,3 +9,8 @@ html, body {
     @include mat.all-component-themes(m3-theme.$light-theme);
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.h-full{
+    height: 100%;
+}

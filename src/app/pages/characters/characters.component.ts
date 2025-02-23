@@ -7,13 +7,15 @@ import { Store } from '@ngrx/store';
 import * as CharacterSelectors from '../../store/characters/character.selectors';
 import * as CharacterActions from '../../store/characters/character.actions';
 import { CardCharacterComponent } from './components/card-character/card-character.component';
+import { SkeletonCardComponent } from './components/skeleton-card/skeleton-card.component';
 @Component({
   selector: 'app-characters',
   standalone: true,
   imports: [
     CommonModule,
     MatPaginatorModule,
-    CardCharacterComponent
+    CardCharacterComponent,
+    SkeletonCardComponent
   ],
   templateUrl: './characters.component.html',
   styleUrl: './characters.component.scss'
@@ -26,6 +28,7 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   count$: Observable<number>; 
 
   currentPage: number = 1;
+  currentLoading: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -42,7 +45,9 @@ export class CharactersComponent implements OnInit, AfterViewInit {
       this.currentPage = page
       this.loadCharacters(this.currentPage);
     })
-    
+    this.loading$.subscribe(res => {
+      this.currentLoading = res
+    })
   }
 
   ngAfterViewInit(): void {
