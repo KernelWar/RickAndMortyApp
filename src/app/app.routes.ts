@@ -29,11 +29,15 @@ export const routes: Routes = [
       {
         path: 'thank-you',
         loadComponent: () => import('./pages/thank-you/thank-you.component').then(m => m.ThankYouComponent)
+      },
+      {
+        path: 'not-found',
+        loadComponent: () => import('./pages/not-found/not-found.component')
       }
     ]
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'not-found'
   }
 ];
