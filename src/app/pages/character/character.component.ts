@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CharactersService } from '../../services/characters.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Store } from '@ngrx/store';
@@ -15,6 +15,7 @@ import { Character } from '../../models/character.model';
   standalone: true,
   imports: [
     NgIf,
+    NgFor,
     AsyncPipe,
     MatIconModule,
     MatButtonModule
@@ -27,6 +28,7 @@ export class CharacterComponent implements OnInit, AfterViewInit {
   loading$: Observable<boolean> | undefined;
   currentPage$: Observable<number>;
   currentPage: number = 0
+  error: boolean = false
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -36,10 +38,10 @@ export class CharacterComponent implements OnInit, AfterViewInit {
     const id = this.route.snapshot.params['id'] | 1;
     this.store.dispatch(CharacterActions.loadCharacter({ id }));
     this.character$ = this.store.select(CharacterSelectors.selectCharacterById(+id));
+    this.loading$ = this.store.select(CharacterSelectors.selectLoading)
     
   }
   ngAfterViewInit(): void {
-   
   }
 
   ngOnInit(): void {
