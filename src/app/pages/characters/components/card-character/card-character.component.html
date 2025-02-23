@@ -12,13 +12,13 @@
         [class.loaded]="isLoaded"
       />
     </div>
-    <mat-card-header>
-      <div mat-card-avatar class="bg-cover" [ngStyle]="{'background-image': 'url(' + character.image + ')'}"></div>
-      <mat-card-title>{{ character.name }}</mat-card-title>
+    <mat-card-header class="container-header">
+      <div mat-card-avatar class="bg-cover container-img" [ngStyle]="{'background-image': 'url(' + character.image + ')'}"></div>
+      <mat-card-title class="title">{{ character.name }}</mat-card-title>
       <mat-card-subtitle>{{ character.gender }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-footer>
-      <mat-chip-set>
+      <mat-chip-set class="container-chip">
         <mat-chip>{{ character.species }}</mat-chip>
       </mat-chip-set>
     </mat-card-footer>

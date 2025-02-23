@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-thank-you',
@@ -9,7 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     MatIconModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    RouterModule
   ],
   templateUrl: './thank-you.component.html',
   styleUrl: './thank-you.component.scss'

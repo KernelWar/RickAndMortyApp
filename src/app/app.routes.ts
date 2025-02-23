@@ -7,7 +7,7 @@ import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
