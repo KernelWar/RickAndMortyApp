@@ -7,6 +7,7 @@ Este proyecto es una aplicación en Angular 18 que utiliza NgRx para gestionar e
 Asegúrate de tener las siguientes herramientas instaladas:
 
 - [Node.js](https://nodejs.org/) (18.19.0)
+- Clonar el proyecto y acceder a la carpeta correspondiente
 
 
 # Ejecutar el proyecto localmente
