@@ -11,3 +11,16 @@
   font-weight: bold;
   padding: 16px;
 }
+
+
+.not-found{
+  display: flex;
+  flex-flow: column;
+  margin-top: 50px;
+  img,h4{
+      margin: auto;
+  }
+  h4{
+      margin-top: 10px;
+  }
+}
