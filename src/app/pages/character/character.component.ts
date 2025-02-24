@@ -35,7 +35,7 @@ export class CharacterComponent implements OnInit, AfterViewInit {
     private store: Store
   ) {
     this.currentPage$ = this.store.select(CharactersSelectors.selectCurrentPage)
-    const id = this.route.snapshot.params['id'] | 1;
+    const id = this.route.snapshot.params['id'];
     this.store.dispatch(CharacterActions.loadCharacter({ id }));
     this.character$ = this.store.select(CharacterSelectors.selectCharacterById(+id));
     this.loading$ = this.store.select(CharacterSelectors.selectLoading)
