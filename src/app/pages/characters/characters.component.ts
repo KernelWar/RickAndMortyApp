@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
@@ -22,9 +22,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './characters.component.scss'
 })
 export class CharactersComponent implements OnInit, AfterViewInit {
+  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
+
   characters$: Observable<Character[]>;
   loading$: Observable<boolean>;
-  count$: Observable<number>; 
+  count$: Observable<number>;
 
   currentPage: number = 1;
   currentLoading: boolean = false;
@@ -35,6 +37,7 @@ export class CharactersComponent implements OnInit, AfterViewInit {
     private store: Store,
     private route: ActivatedRoute,
     private router: Router,
+    private renderer: Renderer2
   ) {
     this.characters$ = this.store.select(CharacterSelectors.selectAllCharacters);
     this.loading$ = this.store.select(CharacterSelectors.selectLoading);
@@ -49,6 +52,15 @@ export class CharactersComponent implements OnInit, AfterViewInit {
     });
     this.loading$.subscribe(res => {
       this.currentLoading = res
+      if (res && this.scrollContainer) {
+        setTimeout(() => {
+          this.scrollContainer.nativeElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest'
+          });
+        }, 500)
+      }
     })
   }
 
@@ -61,11 +73,12 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   }
 
   onPageChanged(event: any): void {
-    const page = event.pageIndex + 1;    
+    const page = event.pageIndex + 1;
     this.router.navigate([], {
       queryParams: { page: page },
       queryParamsHandling: 'merge'
     });
+
   }
 
 }

@@ -1,4 +1,5 @@
 <div class="container">
+  <div #scrollContainer class="scrollable-container"></div>
   <div *ngIf="loading$ | async; else content" class="characters">
     <app-skeleton-card *ngFor="let i of [].constructor(20)"></app-skeleton-card>
   </div>
@@ -14,8 +15,10 @@
         <app-card-character [character]="character"></app-card-character>
       </div>
     </div>
-    <mat-paginator showFirstLastButtons [length]="count$ | async" [pageSize]="20" (page)="onPageChanged($event)"
-      [pageIndex]="currentPage - 1">
-    </mat-paginator>
+    <div class="paginator">
+      <mat-paginator  showFirstLastButtons [length]="count$ | async" [pageSize]="20" (page)="onPageChanged($event)"
+        [pageIndex]="currentPage - 1">
+      </mat-paginator>
+    </div>
   </ng-template>
 </div>
