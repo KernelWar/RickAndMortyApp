@@ -1,20 +1,20 @@
 <mat-nav-list class="px-2 py-0">
     <mat-selection-list class="py-0" [multiple]="false" hideSingleSelectionIndicator="true">
-        <mat-list-option class="mt-2 mb-2" routerLink="/" value="/">
+        <mat-list-option class="mt-2 mb-2" routerLink="/" value="/" (click)="drawerToogle()">
             <div class="content-title-menu d-flex">
                 <mat-icon mat-list-icon class="me-3">home</mat-icon>
                 <div mat-line>Home</div>
             </div>
         </mat-list-option>
         <mat-divider></mat-divider>
-        <mat-list-option class="mt-2 mb-2" [routerLink]="['/characters']" value="characters">
+        <mat-list-option class="mt-2 mb-2" [routerLink]="['/characters']" value="characters" (click)="drawerToogle()">
             <div class="content-title-menu d-flex">
                 <mat-icon mat-list-icon class="me-3">category</mat-icon>
                 <div mat-line>Characters</div>
             </div>
         </mat-list-option>
         <mat-divider></mat-divider>
-        <mat-list-option class="mt-2 mb-2" [routerLink]="['/thank-you']" value="thank-you">
+        <mat-list-option class="mt-2 mb-2" [routerLink]="['/thank-you']" value="thank-you" (click)="drawerToogle()">
             <div class="content-title-menu d-flex">
                 <mat-icon mat-list-icon class="me-3">thumb_up</mat-icon>
                 <div mat-line>Thank you</div>
