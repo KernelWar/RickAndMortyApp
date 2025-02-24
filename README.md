@@ -12,6 +12,10 @@ Asegúrate de tener las siguientes herramientas instaladas:
 
 # Ejecutar el proyecto localmente
 
+Instalar las dependecias (después de clonar el proyecto dirigirse a la carpeta RickAndMortyApp) con el comando:
+
+`npm install`
+
 Para iniciar el proyecto en modo de desarrollo, usa el siguiente comando:
 
 `npm run start`

@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { CharacterState } from './character.reducer';
 
-export const selectCharacterState = createFeatureSelector<CharacterState>('singleCharacters');
+export const selectCharacterState = createFeatureSelector<CharacterState>('singleCharacter');
 
 export const selectLoading = createSelector(selectCharacterState, (state) => state.loading);
 

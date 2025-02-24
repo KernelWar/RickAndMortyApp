@@ -14,7 +14,7 @@ import { SingleCharacterEffects } from './store/character/character.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideStore({ characters: characterReducer, singleCharacters: singleCharacterReducer }),
+    provideStore({ characters: characterReducer, singleCharacter: singleCharacterReducer }),
     provideEffects([CharacterEffects, SingleCharacterEffects]),
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes),

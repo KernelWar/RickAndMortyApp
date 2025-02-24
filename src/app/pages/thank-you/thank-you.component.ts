@@ -18,7 +18,6 @@ import { RouterModule } from '@angular/router';
 })
 export class ThankYouComponent implements OnInit {
   constructor() {
-    console.log("ThankYouComponent")
   }
   
   ngOnInit(): void {

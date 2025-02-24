@@ -9,7 +9,6 @@ export interface CharacterState extends EntityState<Character> {
   currentPage: number;
   count: number;
   loadedPages: { [page: number]: Character[] }
-  loadedCharacters: { [page: number]: Character }
 }
 
 export const initialState: CharacterState = characterAdapter.getInitialState({
@@ -17,7 +16,6 @@ export const initialState: CharacterState = characterAdapter.getInitialState({
   currentPage: 1,
   count: 100,
   loadedPages: {},
-  loadedCharacters: {}
 });
 
 export const characterReducer = createReducer(
